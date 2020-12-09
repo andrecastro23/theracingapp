@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all teams
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new team
+    </h2>
+
+    <form action="/insert_team" method="post">
+      <div>
+        <label for="championships_box">
+          Championships
+        </label>
+
+        <input type="text" id="championships_box" name="query_championships">
+      </div>
+
+      <div>
+        <label for="bio_box">
+          Bio
+        </label>
+
+        <input type="text" id="bio_box" name="query_bio">
+      </div>
+
+      <div>
+        <label for="manufacturer_id_box">
+          Manufacturer
+        </label>
+
+        <input type="text" id="manufacturer_id_box" name="query_manufacturer_id">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="stable_count_box">
+          Stable count
+        </label>
+
+        <input type="text" id="stable_count_box" name="query_stable_count">
+      </div>
+
+      <button>
+        Create team
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Championships
+        </th>
+
+        <th>
+          Bio
+        </th>
+
+        <th>
+          Manufacturer
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Stable count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_teams.each do |a_team| %>
+      <tr>
+        <td>
+          <%= a_team.id %>
+        </td>
+
+        <td>
+          <%= a_team.championships %>
+        </td>
+
+        <td>
+          <%= a_team.bio %>
+        </td>
+
+        <td>
+          <%= a_team.manufacturer_id %>
+        </td>
+
+        <td>
+          <%= a_team.name %>
+        </td>
+
+        <td>
+          <%= a_team.stable_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_team.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_team.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/teams/<%= a_team.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
