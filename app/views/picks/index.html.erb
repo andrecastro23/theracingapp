@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all picks
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new pick
+    </h2>
+
+    <form action="/insert_pick" method="post">
+      <div>
+        <label for="driver_id_box">
+          Driver
+        </label>
+
+        <input type="text" id="driver_id_box" name="query_driver_id">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <button>
+        Create pick
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Driver
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_picks.each do |a_pick| %>
+      <tr>
+        <td>
+          <%= a_pick.id %>
+        </td>
+
+        <td>
+          <%= a_pick.driver_id %>
+        </td>
+
+        <td>
+          <%= a_pick.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_pick.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_pick.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/picks/<%= a_pick.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

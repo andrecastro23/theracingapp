@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Pick resource:
+
+  # CREATE
+  post("/insert_pick", { :controller => "picks", :action => "create" })
+          
+  # READ
+  get("/picks", { :controller => "picks", :action => "index" })
+  
+  get("/picks/:path_id", { :controller => "picks", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_pick/:path_id", { :controller => "picks", :action => "update" })
+  
+  # DELETE
+  get("/delete_pick/:path_id", { :controller => "picks", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM

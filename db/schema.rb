@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_09_063113) do
+ActiveRecord::Schema.define(version: 2020_12_09_064049) do
 
   create_table "drivers", force: :cascade do |t|
     t.string "name"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2020_12_09_063113) do
     t.string "logo"
     t.string "make"
     t.integer "teams_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "picks", force: :cascade do |t|
+    t.integer "driver_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
