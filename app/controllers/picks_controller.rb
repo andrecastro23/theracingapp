@@ -20,7 +20,7 @@ class PicksController < ApplicationController
   def create
     the_pick = Pick.new
     the_pick.driver_id = params.fetch("query_driver_id")
-    the_pick.user_id = params.fetch("query_user_id")
+    the_pick.user_id = @current_user.id
 
     if the_pick.valid?
       the_pick.save

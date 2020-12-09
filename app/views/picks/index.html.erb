@@ -20,16 +20,17 @@
           Driver
         </label>
 
-        <input type="text" id="driver_id_box" name="query_driver_id">
-      </div>
+        <select id="driver_id_box" name="query_driver_id">
+          <% Driver.all.order(:name).each do |a_driver| %>
+            <option value="<%= a_driver.id %>">
+            <%= a_driver.name %>
+            </option>
+          <% end %>
+        </select>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
+        
 
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
+      
 
       <button>
         Create pick
