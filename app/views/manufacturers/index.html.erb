@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all manufacturers
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new manufacturer
+    </h2>
+
+    <form action="/insert_manufacturer" method="post">
+      <div>
+        <label for="logo_box">
+          Logo
+        </label>
+
+        <input type="text" id="logo_box" name="query_logo">
+      </div>
+
+      <div>
+        <label for="make_box">
+          Make
+        </label>
+
+        <input type="text" id="make_box" name="query_make">
+      </div>
+
+      <div>
+        <label for="teams_count_box">
+          Teams count
+        </label>
+
+        <input type="text" id="teams_count_box" name="query_teams_count">
+      </div>
+
+      <button>
+        Create manufacturer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Logo
+        </th>
+
+        <th>
+          Make
+        </th>
+
+        <th>
+          Teams count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_manufacturers.each do |a_manufacturer| %>
+      <tr>
+        <td>
+          <%= a_manufacturer.id %>
+        </td>
+
+        <td>
+          <%= a_manufacturer.logo %>
+        </td>
+
+        <td>
+          <%= a_manufacturer.make %>
+        </td>
+
+        <td>
+          <%= a_manufacturer.teams_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_manufacturer.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_manufacturer.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/manufacturers/<%= a_manufacturer.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

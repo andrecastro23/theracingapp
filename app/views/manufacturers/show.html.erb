@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Manufacturer #<%= @the_manufacturer.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/manufacturers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_manufacturer/<%= @the_manufacturer.id %>">
+          Delete manufacturer
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Logo
+      </dt>
+      <dd>
+        <%= @the_manufacturer.logo %>
+      </dd>
+
+      <dt>
+        Make
+      </dt>
+      <dd>
+        <%= @the_manufacturer.make %>
+      </dd>
+
+      <dt>
+        Teams count
+      </dt>
+      <dd>
+        <%= @the_manufacturer.teams_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_manufacturer.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_manufacturer.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit manufacturer
+    </h2>
+
+    <form action="/modify_manufacturer/<%= @the_manufacturer.id %>"  method="post" >
+      <div>
+        <label for="logo_box">
+          Logo
+        </label>
+
+        <input type="text" id="logo_box" name="query_logo" value="<%= @the_manufacturer.logo %>">
+      </div>
+
+      <div>
+        <label for="make_box">
+          Make
+        </label>
+
+        <input type="text" id="make_box" name="query_make" value="<%= @the_manufacturer.make %>">
+      </div>
+
+      <div>
+        <label for="teams_count_box">
+          Teams count
+        </label>
+
+        <input type="text" id="teams_count_box" name="query_teams_count" value="<%= @the_manufacturer.teams_count %>">
+      </div>
+
+      <button>
+        Update manufacturer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Manufacturer resource:
+
+  # CREATE
+  post("/insert_manufacturer", { :controller => "manufacturers", :action => "create" })
+          
+  # READ
+  get("/manufacturers", { :controller => "manufacturers", :action => "index" })
+  
+  get("/manufacturers/:path_id", { :controller => "manufacturers", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_manufacturer/:path_id", { :controller => "manufacturers", :action => "update" })
+  
+  # DELETE
+  get("/delete_manufacturer/:path_id", { :controller => "manufacturers", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Team resource:
 
   # CREATE
