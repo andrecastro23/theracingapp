@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get("/", { :controller => "drivers", :action => "index" })
 
   # Routes for the Pick resource:
 
