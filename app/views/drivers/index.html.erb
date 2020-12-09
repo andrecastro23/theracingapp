@@ -1,0 +1,214 @@
+<div>
+  <div>
+    <h1>
+      List of all drivers
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new driver
+    </h2>
+
+    <form action="/insert_driver" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="driver_photo_box">
+          Driver photo
+        </label>
+
+        <input type="text" id="driver_photo_box" name="query_driver_photo">
+      </div>
+
+      <div>
+        <label for="driver_number_box">
+          Driver number
+        </label>
+
+        <input type="text" id="driver_number_box" name="query_driver_number">
+      </div>
+
+      <div>
+        <label for="tier_box">
+          Tier
+        </label>
+
+        <input type="text" id="tier_box" name="query_tier">
+      </div>
+
+      <div>
+        <label for="team_id_box">
+          Team
+        </label>
+
+        <input type="text" id="team_id_box" name="query_team_id">
+      </div>
+
+      <div>
+        <label for="bio_box">
+          Bio
+        </label>
+
+        <input type="text" id="bio_box" name="query_bio">
+      </div>
+
+      <div>
+        <label for="crew_chief_box">
+          Crew chief
+        </label>
+
+        <input type="text" id="crew_chief_box" name="query_crew_chief">
+      </div>
+
+      <div>
+        <label for="manufacturer_id_box">
+          Manufacturer
+        </label>
+
+        <input type="text" id="manufacturer_id_box" name="query_manufacturer_id">
+      </div>
+
+      <div>
+        <label for="number_photo_box">
+          Number photo
+        </label>
+
+        <input type="text" id="number_photo_box" name="query_number_photo">
+      </div>
+
+      <button>
+        Create driver
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Driver photo
+        </th>
+
+        <th>
+          Driver number
+        </th>
+
+        <th>
+          Tier
+        </th>
+
+        <th>
+          Team
+        </th>
+
+        <th>
+          Bio
+        </th>
+
+        <th>
+          Crew chief
+        </th>
+
+        <th>
+          Manufacturer
+        </th>
+
+        <th>
+          Number photo
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_drivers.each do |a_driver| %>
+      <tr>
+        <td>
+          <%= a_driver.id %>
+        </td>
+
+        <td>
+          <%= a_driver.name %>
+        </td>
+
+        <td>
+          <%= a_driver.driver_photo %>
+        </td>
+
+        <td>
+          <%= a_driver.driver_number %>
+        </td>
+
+        <td>
+          <%= a_driver.tier %>
+        </td>
+
+        <td>
+          <%= a_driver.team_id %>
+        </td>
+
+        <td>
+          <%= a_driver.bio %>
+        </td>
+
+        <td>
+          <%= a_driver.crew_chief %>
+        </td>
+
+        <td>
+          <%= a_driver.manufacturer_id %>
+        </td>
+
+        <td>
+          <%= a_driver.number_photo %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_driver.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_driver.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/drivers/<%= a_driver.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

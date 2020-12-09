@@ -10,6 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_12_09_061326) do
+
+  create_table "drivers", force: :cascade do |t|
+    t.string "name"
+    t.string "driver_photo"
+    t.integer "driver_number"
+    t.integer "tier"
+    t.integer "team_id"
+    t.string "bio"
+    t.string "crew_chief"
+    t.integer "manufacturer_id"
+    t.string "number_photo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
