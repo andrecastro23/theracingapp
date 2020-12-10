@@ -1,13 +1,11 @@
 <div>
   <div>
-    <h1>
-      Driver #<%= @the_driver.id %> details
-    </h1>
+   
 
-    <% matching_picks = Pick.where({ :user_id => @current_user.id }).where({ :driver_id => @the_driver.id }) %>
-    <% the_pick = matching_picks.first %>
+    <% matching_picks = Pick.where({ :user_id => @current_user.id }).where({ :driver_id => @the_driver.id }) 
+      the_pick = matching_picks.at(0) 
 
-    <% if the_pick == nil %>
+     if the_pick == nil %>
 
     <form action="/insert_pick" method="post">
       <input type="hidden" name="query_driver_id" value="<%= @the_driver.id %>">
@@ -37,11 +35,12 @@
     </div>
 
     <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
+      
+      <h1>
         <%= @the_driver.name %>
+      </h1>
+      <dd>
+        <img src="<%= @the_driver.number_photo %>" style="width:100px;height:100px;">
       </dd>
 
       <dt>
@@ -69,7 +68,7 @@
         Team
       </dt>
       <dd>
-        <%= @the_driver.team_id %>
+        <%= @the_driver.team.name %>
       </dd>
 
       <dt>
@@ -90,15 +89,13 @@
         Manufacturer
       </dt>
       <dd>
-        <%= @the_driver.manufacturer_id %>
+        <%= @the_driver.manufacturer.make %>
       </dd>
 
       <dt>
         Number photo
       </dt>
-      <dd>
-        <%= @the_driver.number_photo %>
-      </dd>
+      
 
       <dt>
         Created at
@@ -120,90 +117,6 @@
 <hr>
 
 
-<div>
-  <div>
-    <h2>
-      Edit driver
-    </h2>
 
-    <form action="/modify_driver/<%= @the_driver.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_driver.name %>">
-      </div>
-
-      <div>
-        <label for="driver_photo_box">
-          Driver photo
-        </label>
-
-        <input type="text" id="driver_photo_box" name="query_driver_photo" value="<%= @the_driver.driver_photo %>">
-      </div>
-
-      <div>
-        <label for="driver_number_box">
-          Driver number
-        </label>
-
-        <input type="text" id="driver_number_box" name="query_driver_number" value="<%= @the_driver.driver_number %>">
-      </div>
-
-      <div>
-        <label for="tier_box">
-          Tier
-        </label>
-
-        <input type="text" id="tier_box" name="query_tier" value="<%= @the_driver.tier %>">
-      </div>
-
-      <div>
-        <label for="team_id_box">
-          Team
-        </label>
-
-        <input type="text" id="team_id_box" name="query_team_id" value="<%= @the_driver.team_id %>">
-      </div>
-
-      <div>
-        <label for="bio_box">
-          Bio
-        </label>
-
-        <input type="text" id="bio_box" name="query_bio" value="<%= @the_driver.bio %>">
-      </div>
-
-      <div>
-        <label for="crew_chief_box">
-          Crew chief
-        </label>
-
-        <input type="text" id="crew_chief_box" name="query_crew_chief" value="<%= @the_driver.crew_chief %>">
-      </div>
-
-      <div>
-        <label for="manufacturer_id_box">
-          Manufacturer
-        </label>
-
-        <input type="text" id="manufacturer_id_box" name="query_manufacturer_id" value="<%= @the_driver.manufacturer_id %>">
-      </div>
-
-      <div>
-        <label for="number_photo_box">
-          Number photo
-        </label>
-
-        <input type="text" id="number_photo_box" name="query_number_photo" value="<%= @the_driver.number_photo %>">
-      </div>
-
-      <button>
-        Update driver
-      </button>
-    </form>
-  </div>
-</div>
 
 <hr>

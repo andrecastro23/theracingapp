@@ -12,6 +12,6 @@
 #  manufacturer_id :integer
 #
 class Team < ApplicationRecord
-  has_many(:stable, { :class_name => "Driver", :foreign_key => "manufacturer_id", :dependent => :nullify })
+  has_many(:stable, { :class_name => "Driver", :foreign_key => "team_id", :dependent => :nullify })
   belongs_to(:manufacturer, { :required => false, :class_name => "Manufacturer", :foreign_key => "manufacturer_id", :counter_cache => true })
 end

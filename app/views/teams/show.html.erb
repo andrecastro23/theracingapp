@@ -1,8 +1,6 @@
 <div>
   <div>
-    <h1>
-      Team #<%= @the_team.id %> details
-    </h1>
+   
 
     <div>
       <div>
@@ -11,14 +9,14 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_team/<%= @the_team.id %>">
-          Delete team
-        </a>
-      </div>
-    </div>
+      
+
+   
 
     <dl>
+    <h1>
+        <%= @the_team.name %>
+      </h1>
       <dt>
         Championships
       </dt>
@@ -37,21 +35,26 @@
         Manufacturer
       </dt>
       <dd>
-        <%= @the_team.manufacturer_id %>
+        <%= @the_team.manufacturer.make %>
       </dd>
 
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_team.name %>
-      </dd>
+      
+      
 
       <dt>
         Stable count
       </dt>
       <dd>
         <%= @the_team.stable_count %>
+      </dd>
+      <dd>
+        <% @the_team.stable.each do |thename| %>
+           <ul><a href="/drivers/<%= thename.id %>">
+           
+           <%= thename.name %>
+           </a>
+           </ul>
+          <%  end %>
       </dd>
 
       <dt>
@@ -74,58 +77,4 @@
 <hr>
 
 
-<div>
-  <div>
-    <h2>
-      Edit team
-    </h2>
 
-    <form action="/modify_team/<%= @the_team.id %>"  method="post" >
-      <div>
-        <label for="championships_box">
-          Championships
-        </label>
-
-        <input type="text" id="championships_box" name="query_championships" value="<%= @the_team.championships %>">
-      </div>
-
-      <div>
-        <label for="bio_box">
-          Bio
-        </label>
-
-        <input type="text" id="bio_box" name="query_bio" value="<%= @the_team.bio %>">
-      </div>
-
-      <div>
-        <label for="manufacturer_id_box">
-          Manufacturer
-        </label>
-
-        <input type="text" id="manufacturer_id_box" name="query_manufacturer_id" value="<%= @the_team.manufacturer_id %>">
-      </div>
-
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_team.name %>">
-      </div>
-
-      <div>
-        <label for="stable_count_box">
-          Stable count
-        </label>
-
-        <input type="text" id="stable_count_box" name="query_stable_count" value="<%= @the_team.stable_count %>">
-      </div>
-
-      <button>
-        Update team
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
