@@ -1,6 +1,6 @@
 class PicksController < ApplicationController
   def index
-    matching_picks = Pick.all
+    matching_picks = Pick.where({ :user_id => @current_user.id })
 
     @list_of_picks = matching_picks.order({ :created_at => :desc })
 

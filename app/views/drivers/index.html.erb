@@ -99,17 +99,13 @@
   <div>
     <table>
       <tr>
-        <th>
-          ID
-        </th>
+       
 
         <th>
           Name
         </th>
 
-        <th>
-          Driver photo
-        </th>
+        
 
         <th>
           Driver number
@@ -123,13 +119,7 @@
           Team
         </th>
 
-        <th>
-          Bio
-        </th>
-
-        <th>
-          Crew chief
-        </th>
+       
 
         <th>
           Manufacturer
@@ -153,17 +143,13 @@
 
       <% @list_of_drivers.each do |a_driver| %>
       <tr>
-        <td>
-          <%= a_driver.id %>
-        </td>
+       
 
         <td>
           <%= a_driver.name %>
         </td>
 
-        <td>
-          <%= a_driver.driver_photo %>
-        </td>
+        
 
         <td>
           <%= a_driver.driver_number %>
@@ -174,19 +160,11 @@
         </td>
 
         <td>
-          <%= a_driver.team_id %>
+          <%= a_driver.team.name %>
         </td>
 
         <td>
-          <%= a_driver.bio %>
-        </td>
-
-        <td>
-          <%= a_driver.crew_chief %>
-        </td>
-
-        <td>
-          <%= a_driver.manufacturer_id %>
+          <%= a_driver.manufacturer.make %>
         </td>
 
         <td>

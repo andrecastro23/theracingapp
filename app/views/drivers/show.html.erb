@@ -4,6 +4,24 @@
       Driver #<%= @the_driver.id %> details
     </h1>
 
+    <% matching_picks = Pick.where({ :user_id => @current_user.id }).where({ :driver_id => @the_driver.id }) %>
+    <% the_pick = matching_picks.first %>
+
+    <% if the_pick == nil %>
+
+    <form action="/insert_pick" method="post">
+      <input type="hidden" name="query_driver_id" value="<%= @the_driver.id %>">
+
+      <button>Pick this driver</button>
+    </form>
+
+    <% else %>
+    <a href="/delete_pick/<%= the_pick.id %>">
+    Un-pick
+    </a>
+
+    <% end %>
+
     <div>
       <div>
         <a href="/drivers">

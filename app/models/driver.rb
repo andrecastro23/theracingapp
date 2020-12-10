@@ -17,7 +17,7 @@
 #
 class Driver < ApplicationRecord
   has_one(:pick, { :class_name => "Pick", :foreign_key => "driver_id", :dependent => :destroy })
-  belongs_to(:team, { :required => false, :class_name => "Team", :foreign_key => "tier", :counter_cache => :stable_count })
+  belongs_to(:team, { :required => false, :class_name => "Team", :foreign_key => "manufacturer_id", :counter_cache => :stable_count })
 has_one(:manufacturer, { :through => :team, :source => :manufacturer })
 has_one(:user, { :through => :pick, :source => :user })
 
