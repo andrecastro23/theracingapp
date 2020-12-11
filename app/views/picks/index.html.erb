@@ -41,7 +41,7 @@ All user lineups
         <select id="driver_id_box" name="query_driver_id">
           <% Driver.all.order(:name).each do |a_driver| %>
             <option value="<%= a_driver.id %>">
-            <%= a_driver.name %>
+            <%= a_driver.name %> - <%= a_driver.tier %>
             </option>
           <% end %>
         </select>
