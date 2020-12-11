@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get("/picks", { :controller => "picks", :action => "index" })
   
   get("/picks/:path_id", { :controller => "picks", :action => "show" })
+
+  get("/rosters" , { :controller => "picks", :action => "allteams" })
+  get("/rosters/:user_id" , { :controller => "picks", :action => "specificteams" })
   
   # UPDATE
   

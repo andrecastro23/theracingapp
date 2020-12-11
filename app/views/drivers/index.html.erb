@@ -1,3 +1,20 @@
+<% if @current_user == nil %>
+<div>
+You must create an account and log in to create your NASCAR dream team! Otherwise,
+feel free to surf the 2020 NASCAR Cup Series driver and team profiles.
+</div>
+
+<% else %>
+<div>
+The drivers are separated into three tiers. Tier 1 drivers are always contending to win,
+tier 2 drivers are usually in the midfield, and tier 3 drivers are perennial
+backmarkers! You are allowed to pick THREE tier 1 drivers,
+TWO tier 2 drivers, and TWO tier 3 drivers to create your ultimate team. Once you've
+created your team, see how it compares to other users' squads!
+</div>
+
+<% end %>
+
 <div>
 <a href="/teams">
 Teams
@@ -30,9 +47,7 @@ My lineup
          <th>
           Driver number
          </th>
-         <th>
-          Number photo
-        </th>
+         
         <th>
           Name
         </th>
@@ -71,9 +86,7 @@ My lineup
 
       <% @list_of_drivers.each do |a_driver| %>
       <tr>
-         <td>
-          <%= a_driver.driver_number %>
-        </td>
+        
         <td>
           <img src="<%= a_driver.number_photo %>" style="width:100px;height:100px;">
         </td>
@@ -90,7 +103,11 @@ My lineup
         </td>
 
         <td>
-          <%= a_driver.team.name %>
+        
+         <a href="/teams/<%= a_driver.team.id %>">
+         
+         <%= a_driver.team.name %>
+         </a>
         </td>
 
         <td>

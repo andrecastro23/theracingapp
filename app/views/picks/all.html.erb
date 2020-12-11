@@ -1,0 +1,36 @@
+  <a href="/picks">
+ Go back
+ </a>
+ 
+ <h1>
+ Click on any user to see their dream team!
+ </h1>
+
+ 
+ 
+ <% @allusers.each do |a_user| %>
+
+  <div>
+    <table>
+    <tr>
+         <th>
+          User name
+         </th>
+         <th>
+          
+        </th>
+      
+
+      </tr>
+     
+      <tr>
+         <td>
+         <a href="/rosters/<%= a_user.id %>">
+         <%= a_user.first_name %> <%= a_user.last_name %>
+         </a>
+        </td>
+      
+      </tr>
+    </table>
+    </div>
+  <% end %>

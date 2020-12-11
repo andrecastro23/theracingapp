@@ -1,7 +1,22 @@
 <div>
+<a href="/drivers">
+All drivers
+</div>
+<div>
+<a href="/teams">
+All teams
+</a>
+</div>
+<div>
+<a href="/rosters">
+All user lineups
+</a>
+</div>
+
+<div>
   <div>
     <h1>
-      List of all picks
+      My Lineup
     </h1>
   </div>
 </div>
@@ -45,7 +60,9 @@
     <table>
       <tr>
        <% @list_of_picks.each do |a_pick| %>
-
+        <th>
+          
+        </th>
         <th>
           Driver
         </th>
@@ -72,6 +89,10 @@
            #a_pick.id 
         #</td> 
         %>
+
+        <td>
+          <img src="<%= a_pick.driver.number_photo %>" style="width:100px;height:100px;">
+        </td>
 
         <td>
           <%= a_pick.driver.name %>

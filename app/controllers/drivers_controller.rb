@@ -3,7 +3,7 @@ class DriversController < ApplicationController
   def index
     matching_drivers = Driver.all
 
-    @list_of_drivers = matching_drivers.order({ :created_at => :desc })
+    @list_of_drivers = matching_drivers.order({ :driver_number => :asc })
 
     render({ :template => "drivers/index.html.erb" })
   end

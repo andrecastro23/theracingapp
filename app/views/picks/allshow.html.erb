@@ -1,0 +1,33 @@
+<% @the_matching_user.first_name %>
+
+<% @the_list_of_picks.each do |a_roster| %>
+<div>
+    <table>
+    <tr>
+         <th>
+          User name
+         </th>
+         <th>
+          
+        </th>
+        <th>
+          Driver
+        </th>
+
+      </tr>
+      
+      <tr>
+         <td>
+          <%= a_roster.user.first_name %> <%= a_roster.user.last_name %>
+        </td>
+        <td>
+          <img src="<%= a_roster.driver.number_photo %>" style="width:100px;height:100px;">
+        </td>
+        <td>
+          <%= a_roster.driver.name %>
+          
+        </td>
+      </tr>
+    </table>
+    </div>
+  <% end %>

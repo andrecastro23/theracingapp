@@ -13,7 +13,7 @@ class PicksController < ApplicationController
 
     matching_picks = Pick.where({ :id => the_id })
 
-    the_pick = matching_picks.at(0)
+    @the_pick = matching_picks.at(0)
 
     render({ :template => "picks/show.html.erb" })
   end
@@ -82,6 +82,23 @@ class PicksController < ApplicationController
       redirect_to("/picks", { :notice => "Pick failed to create successfully." })
     end
   end
+
+  def allteams
+    @allusers = User.all
+
+    render({ :template => "picks/all.html.erb" })
+  end
+
+  def specificteams
+    the_user_id = params.fetch("user_id")
+    @the_matching_user = User.where({ :id => the_user_id }).at(0)
+    the_matching_picks = Pick.where({ :user_id => @the_matching_user.id })
+   
+
+    @the_list_of_picks = the_matching_picks.order({ :created_at => :desc })
+    render({ :template => "/picks/allshow.html.erb"})
+  end
+    
 
   def update
     the_id = params.fetch("path_id")
