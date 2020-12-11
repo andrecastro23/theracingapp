@@ -16,7 +16,7 @@ class ManufacturersController < ApplicationController
 
     render({ :template => "manufacturers/show.html.erb" })
   end
-
+  
   def create
     the_manufacturer = Manufacturer.new
     the_manufacturer.logo = params.fetch("query_logo")

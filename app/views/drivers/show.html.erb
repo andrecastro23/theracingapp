@@ -1,7 +1,7 @@
 <div>
   <div>
    
-
+  <% if @current_user != nil%>
     <% matching_picks = Pick.where({ :user_id => @current_user.id }).where({ :driver_id => @the_driver.id }) 
       the_pick = matching_picks.at(0) 
 
@@ -19,6 +19,7 @@
     </a>
 
     <% end %>
+    <% end %>
 
     <div>
       <div>
@@ -27,12 +28,7 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_driver/<%= @the_driver.id %>">
-          Delete driver
-        </a>
-      </div>
-    </div>
+     
 
     <dl>
       
@@ -43,19 +39,10 @@
         <img src="<%= @the_driver.number_photo %>" style="width:100px;height:100px;">
       </dd>
 
-      <dt>
-        Driver photo
-      </dt>
       <dd>
-        <%= @the_driver.driver_photo %>
+        <img src ="<%= @the_driver.driver_photo %>">
       </dd>
 
-      <dt>
-        Driver number
-      </dt>
-      <dd>
-        <%= @the_driver.driver_number %>
-      </dd>
 
       <dt>
         Tier
@@ -68,7 +55,9 @@
         Team
       </dt>
       <dd>
+      <a href="/teams/<%= @the_driver.team.id %>">
         <%= @the_driver.team.name %>
+        </a>
       </dd>
 
       <dt>
@@ -92,24 +81,7 @@
         <%= @the_driver.manufacturer.make %>
       </dd>
 
-      <dt>
-        Number photo
-      </dt>
-      
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_driver.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_driver.updated_at) %> ago
-      </dd>
+     
     </dl>
   </div>
 </div>
@@ -119,4 +91,4 @@
 
 
 
-<hr>
+

@@ -1,4 +1,5 @@
 class DriversController < ApplicationController
+  
   def index
     matching_drivers = Driver.all
 

@@ -44,16 +44,14 @@
   <div>
     <table>
       <tr>
-        <th>
-          ID
-        </th>
+       <% @list_of_picks.each do |a_pick| %>
 
         <th>
           Driver
         </th>
 
         <th>
-          User
+          Tier
         </th>
 
         <th>
@@ -68,18 +66,19 @@
         </th>
       </tr>
 
-      <% @list_of_picks.each do |a_pick| %>
+   
       <tr>
+      <% #<td>
+           #a_pick.id 
+        #</td> 
+        %>
+
         <td>
-          <%= a_pick.id %>
+          <%= a_pick.driver.name %>
         </td>
 
         <td>
-          <%= a_pick.driver_id %>
-        </td>
-
-        <td>
-          <%= a_pick.user_id %>
+          <%= a_pick.tier %>
         </td>
 
         <td>
@@ -90,7 +89,7 @@
         </td>
 
         <td>
-          <a href="/picks/<%= a_pick.id %>">
+          <a href="/drivers/<%= a_pick.driver_id %>">
             Show details
           </a>
         </td>
