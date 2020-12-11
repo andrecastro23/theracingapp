@@ -1,3 +1,15 @@
+<div>
+<a href="/teams">
+Teams
+</a>
+</div>
+<div>
+<a href="/picks">
+My lineup
+</a>
+</div>
+<hr>
+<div>
 <% if @current_user == nil %>
 <div>
 You must create an account and log in to create your NASCAR dream team! Otherwise,
@@ -12,19 +24,10 @@ backmarkers! You are allowed to pick THREE tier 1 drivers,
 TWO tier 2 drivers, and TWO tier 3 drivers to create your ultimate team. Once you've
 created your team, see how it compares to other users' squads!
 </div>
+</div>
 
 <% end %>
 
-<div>
-<a href="/teams">
-Teams
-</a>
-</div>
-<div>
-<a href="/picks">
-My lineup
-</a>
-</div>
 
 
 <div>
@@ -72,13 +75,7 @@ My lineup
 
         
 
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
+        
 
         <th>
         </th>
@@ -116,12 +113,7 @@ My lineup
 
        
 
-        <td>
-          <%= time_ago_in_words(a_driver.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_driver.updated_at) %> ago
-        </td>
+        
 
         <td>
           <a href="/drivers/<%= a_driver.id %>">

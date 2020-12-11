@@ -43,7 +43,7 @@ class UserAuthenticationController < ApplicationController
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
-    @user.picks_count = params.fetch("query_picks_count")
+    
 
     save_status = @user.save
 
@@ -67,7 +67,7 @@ class UserAuthenticationController < ApplicationController
     @user.password_confirmation = params.fetch("query_password_confirmation")
     @user.first_name = params.fetch("query_first_name")
     @user.last_name = params.fetch("query_last_name")
-    @user.picks_count = params.fetch("query_picks_count")
+  
     
     if @user.valid?
       @user.save

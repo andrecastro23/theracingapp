@@ -1,6 +1,11 @@
 <a href="/drivers">
 Drivers
 </a>
+<div>
+<a href="/picks">
+My lineup
+</a>
+</div>
 
 <div>
   <div>
@@ -21,21 +26,17 @@ Drivers
       <tr>
       
 
-        <th>
-          Championships
+         <th>
+          Name
         </th>
 
-        <th>
-          Bio
-        </th>
+        
 
         <th>
           Manufacturer
         </th>
 
-        <th>
-          Name
-        </th>
+      
 
         <th>
           Number of Cars
@@ -51,31 +52,20 @@ Drivers
       
 
         <td>
-          <%= a_team.championships %>
-        </td>
-
-        <td>
-          <%= a_team.bio %>
-        </td>
-
-        <td>
-          <%= a_team.manufacturer_id %>
-        </td>
-
-        <td>
           <%= a_team.name %>
         </td>
+
+        <td>
+          <%= a_team.manufacturer.make %>
+        </td>
+
+       
 
         <td>
           <%= a_team.stable_count %>
         </td>
 
-        <td>
-          <%= time_ago_in_words(a_team.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_team.updated_at) %> ago
-        </td>
+       
 
         <td>
           <a href="/teams/<%= a_team.id %>">
